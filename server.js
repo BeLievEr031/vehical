@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import * as url from 'url';
 import dotenv from "dotenv";
 import cors from "cors";
 import dbConnect from "./db/dbConnect.js";
@@ -8,7 +9,7 @@ import bookingRouter from "./routes/bookingRouter.js";
 import vehicalRouter from "./routes/vehicalRouter.js";
 dotenv.config();
 const app = express();
-
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
