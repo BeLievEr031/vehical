@@ -13,12 +13,12 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "dist")));
-app.get("*", function (_, res) {
-  res.sendFile(path.join(__dirname, "./dist/index.html"), function (err) {
-    res.status(500).send(err);
-  });
-});
+// app.use(express.static(path.join(__dirname, "dist")));
+// app.get("*", function (_, res) {
+//   res.sendFile(path.join(__dirname, "./dist/index.html"), function (err) {
+//     res.status(500).send(err);
+//   });
+// });
 // Routes
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/booking", bookingRouter);
